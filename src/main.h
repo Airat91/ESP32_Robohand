@@ -11,6 +11,9 @@
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "project_config.h"
+#include "pin_map.h"
+#include "led.h"
 /*add includes before */
 
 #ifdef __cplusplus

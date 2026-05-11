@@ -1,5 +1,19 @@
+/*
+ * File:        main.c
+ * Authors:     Girfanov.Ayrat@yandex.ru
+ * Description: System debug functions and control
+ * Revision history: 0.1
+ */
+
 #include "main.h"
-#include "project_config.h"
+
+//-------Global variables------
+
+//-------Static variables------
+
+//-------Static functions declaration-----------
+
+//-------Functions----------
 
 // Задача 1
 void task1(void *pvParameters) {
@@ -19,8 +33,9 @@ void task2(void *pvParameters) {
 
 void app_main() {
     // Создаем две задачи, которые будут работать параллельно
-    xTaskCreate(task1, "TASK1", 2048, NULL, 1, NULL);
-    xTaskCreate(task2, "TASK2", 2048, NULL, 1, NULL);
+    led_task_handle = xTaskCreateStatic(led_task, "LED_TASK", LED_TASK_STACK_SIZE, NULL, LED_TASK_PRIORITY, NULL, NULL);
     
     printf("Both tasks created in IDF!\n");
 }
+
+//-------Static functions----------
